@@ -32,12 +32,6 @@ app.use('/', logoutRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use('/',(req,res)=>
- {
-     res.send('<h1>404 not found</h1>');
- });
-
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log('Server is running on port 5000'));
 
