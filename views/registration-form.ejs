@@ -1,0 +1,35 @@
+
+<%- include('header',{
+  title:'Signup'
+}); -%>
+
+<div class="container">
+  <h1>Sign Up</h1>
+  <form method="post" action="/register">
+     
+    <% if(typeof alertMsg !== 'undefined'){ %>
+    <div class="success-msg"><%= alertMsg %></div><% } %> 
+    <br>
+      
+    <label for="user_name">Name</label>
+    <input type="text" class="input" name="name" id="user_name" placeholder="Enter your name" value="<%=(typeof inputData!='undefined')? inputData.name:''%>">
+    <div class="err-msg"> <%=(typeof errors!='undefined' && typeof errors.name!='undefined' )? errors.name.msg:''%></div>
+    <br>
+
+    <label for="user_email">Email</label>
+    <input type="email" class="input" name="email" id="user_email" placeholder="Enter your email" value="<%=(typeof inputData!='undefined')? inputData.email:''%>">
+    <div class="err-msg"><%=(typeof errors!='undefined' && typeof errors.email!='undefined' )? errors.email.msg:''%></div>
+    <br>
+
+    <label for="user_pass">Password</label>
+    <input type="password" class="input" name="password" id="user_pass" placeholder="Enter new password" value="<%=(typeof inputData!='undefined')? inputData.password:''%>">
+    <div class="err-msg"><%=(typeof errors!='undefined' && typeof errors.password!='undefined' )? errors.password.msg:''%></div>
+    <br>
+    
+    <button type="submit">Sign Up</button>
+    <div class="link"><a href="/login">Login</a></div>
+
+  </form>
+</div>
+
+<%- include('footer'); -%>
